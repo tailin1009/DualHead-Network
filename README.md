@@ -95,8 +95,50 @@ Put downloaded data into the following directory structure:
    - `python gen_motion_data.py --dataset kinetics`
 
 
+## Pretrained Models
+To be released soon (so many files)
 
 
+## Training & Testing
+
+- The general training template command:
+```
+CUDA_VISIBLE_DEVICES=0,1,2,3 python main_dualhead.py --config config/ntu-xsub/train_joint.yaml \
+    --work-dir work_dir/ntu-xsub/train_joint \
+    --base-lr 0.05 --device 0 1 2 3 \
+    --step 40 60 80 \
+    --batch-size 64 --forward-batch-size 64 --test-batch-size 64 \
+    --num-epoch 300 \
+    --eval-interval 1 --save-interval 1
+    
+```
+The model is evaluated every `--eval-interval` iteration and saved every `--save-interval` iteration.  
+
+
+- Template for multi-stream fusion:
+```
+python ensemble.py
+  --dataset <dataset to ensemble, e.g. ntu120/xsub>
+  --joint-dir <work_dir of your test command for joint model>
+  --bone-dir <work_dir of your test command for bone model>
+```
+Details are to be released.
+
+- Use the corresponding config files from `./config` to train/test different datasets
+
+
+- Resume training from checkpoint
+```
+python3 main.py
+  ...  # Same params as before
+  --start-epoch <0 indexed epoch>
+  --weights <weights in work_dir>
+  --checkpoint <checkpoint in work_dir>
+```
+
+## Notes
+- Default hyper-parameters are stored in the config files; you can tune them & add extra training techniques to boost performance
+- ...
 
 
 
