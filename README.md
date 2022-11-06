@@ -89,7 +89,7 @@ Put downloaded data into the following directory structure:
 
 [comment]: <> (   - )
    
-4. Generate the bone data with:
+4. Generate the motion data with:
    - `python gen_motion_data.py --dataset ntu`
    - `python gen_motion_data.py --dataset ntu120`
    - `python gen_motion_data.py --dataset kinetics`
