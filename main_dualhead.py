@@ -278,7 +278,8 @@ class Processor():
 
         # Copy model file and main
         shutil.copy2(inspect.getfile(Model), self.arg.work_dir)
-        shutil.copy2(os.path.join('model', __file__), self.arg.work_dir)
+        # shutil.copy2(os.path.join('model', __file__), self.arg.work_dir)
+        shutil.copy2(os.path.join(__file__), self.arg.work_dir)
 
         self.model = Model(**self.arg.model_args).cuda(output_device)
         self.loss = nn.CrossEntropyLoss().cuda(output_device)
