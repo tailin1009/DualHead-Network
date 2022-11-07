@@ -662,7 +662,7 @@ class Processor():
             self.print_log(f'\tMean {ln} loss of {len(self.data_loader[ln])} batches: {np.mean(loss_values):.4f}.')
             for k in self.arg.show_topk:
                 self.print_log(
-                    f'\tTop {k}: {100 * self.data_loader[ln].dataset.top_k(score, k):.2f}% | \tFast: {100 * self.data_loader[ln].dataset.top_k(fine_score, k):.2f}% | \tSlow: {100 * self.data_loader[ln].dataset.top_k(coarse_score, k):.2f}%')
+                    f'\tTop {k}: {100 * self.data_loader[ln].dataset.top_k(score, k):.2f}% | \tFine: {100 * self.data_loader[ln].dataset.top_k(fine_score, k):.2f}% | \tCoarse: {100 * self.data_loader[ln].dataset.top_k(coarse_score, k):.2f}%')
 
             if save_score:
                 with open(self.arg.work_dir + '/eval_results/{}_score_acc_{}_{:.5f}.pkl'.format(ln, epoch, accuracy),
