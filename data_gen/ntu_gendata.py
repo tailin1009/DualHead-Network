@@ -6,7 +6,7 @@ import argparse
 
 from tqdm import tqdm
 
-from data_gen_2sagcn.preprocess import pre_normalization
+from data_gen.preprocess import pre_normalization
 
 
 # https://arxiv.org/pdf/1604.02808.pdf, Section 3.2

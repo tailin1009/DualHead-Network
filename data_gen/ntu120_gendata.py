@@ -8,7 +8,7 @@ import argparse
 import numpy as np
 from tqdm import tqdm
 
-from data_gen_2sagcn.preprocess import pre_normalization
+from data_gen.preprocess import pre_normalization
 
 
 # NTU RGB+D Skeleton 120 Configurations: https://arxiv.org/pdf/1905.04757.pdf
